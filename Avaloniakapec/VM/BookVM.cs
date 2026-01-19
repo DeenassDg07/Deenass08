@@ -4,7 +4,7 @@ using Avaloniakapec.VM.Utils;
 
 namespace Avaloniakapec.VM;
 
-public class BooksVM : BaseVM
+public class BookVM : BaseVM
 {
   private readonly Book book;
 
@@ -47,7 +47,7 @@ public class BooksVM : BaseVM
       OnPropertyChanged();
     }
   }
-  public BooksVM (Book _book)
+  public BookVM (Book _book)
   {
     book = _book;
   }

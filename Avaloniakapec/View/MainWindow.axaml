@@ -2,17 +2,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:vm="clr-namespace:Avaloniakapec.VM"
+        mc:Ignorable="d" d:Width="400" d:Height="225"
         x:Class="Avaloniakapec.MainWindow"
+        x:DataType="vm:BookVM"
         Title="Avaloniakapec">
         <Window.DataTemplates>
-                <DataTemplate DataType="">
+                <DataTemplate DataType="vm:BookVM">
                         <StackPanel>
-                                <Label  Content="{Binding Isbn}"/>
-                                <Label Content="{Binding Title}"/>
-                                <Label Content="{Binding Author}"/>
-                                <Label Content="{Binding Year}"/>
+                                <Label Content="{Binding Isbn, StringFormat = Номер: {0}}"/>
+                                <Label Content="{Binding Title, StringFormat = Название: {1}}"/>
+                                <Label Content="{Binding Author, StringFormat = {}Автор: {2}}"/>
+                                <Label Content="{Binding Year, StringFormat = {}Год издания: {3}}"/>
                         </StackPanel>
                 </DataTemplate>
         </Window.DataTemplates>
+        <ListBox ItemsSource="{Binding Books }" SelectedItem="{Binding SelectedBook }"/>
+                
+      
 </Window>
